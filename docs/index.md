@@ -42,7 +42,7 @@ See [Getting started](getting-started.md) for the full walkthrough.
 
 [:material-sitemap: **Architecture**<br>How the CLI is put together](architecture.md){ .wt-card }
 
-[:material-test-tube: **Testing**<br>Running and writing the test suite](testing.md){ .wt-card }
+[:material-help-circle: **FAQ**<br>Common questions and troubleshooting](faq.md){ .wt-card }
 
 [:material-hand-heart: **Contributing**<br>How to help](https://github.com/willtheorangeguy/.github/blob/main/CONTRIBUTING.md){ .wt-card }
 

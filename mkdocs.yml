@@ -34,6 +34,7 @@ nav:
   - Development:
       - Testing: testing.md
       - CI/CD: ci-cd.md
+      - FAQ: faq.md
   # Contributing, Code of Conduct, and Security live in willtheorangeguy/.github
   # and are being removed from this repo by the docs/standardize wave, so they
   # are linked rather than included. Changelog and License stay per-repo.
@@ -46,8 +47,6 @@ nav:
 
 # No configuration.md: the CLI takes no flags, reads no config file, and uses
 # no environment variables. Documenting one would mean inventing it.
-#
-# No faq.md: no recurring questions in issues or discussions to draw from.
 
 exclude_docs: |
   docs.instructions.md
