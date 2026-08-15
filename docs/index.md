@@ -44,7 +44,7 @@ See [Getting started](getting-started.md) for the full walkthrough.
 
 [:material-test-tube: **Testing**<br>Running and writing the test suite](testing.md){ .wt-card }
 
-[:material-hand-heart: **Contributing**<br>How to help](contributing.md){ .wt-card }
+[:material-hand-heart: **Contributing**<br>How to help](https://github.com/willtheorangeguy/.github/blob/main/CONTRIBUTING.md){ .wt-card }
 
 </div>
 

@@ -34,12 +34,15 @@ nav:
   - Development:
       - Testing: testing.md
       - CI/CD: ci-cd.md
+  # Contributing, Code of Conduct, and Security live in willtheorangeguy/.github
+  # and are being removed from this repo by the docs/standardize wave, so they
+  # are linked rather than included. Changelog and License stay per-repo.
   - About:
-      - Contributing: contributing.md
       - Changelog: changelog.md
-      - Code of Conduct: code-of-conduct.md
-      - Security: security.md
       - License: license.md
+      - Contributing: https://github.com/willtheorangeguy/.github/blob/main/CONTRIBUTING.md
+      - Code of Conduct: https://github.com/willtheorangeguy/.github/blob/main/CODE_OF_CONDUCT.md
+      - Security: https://github.com/willtheorangeguy/.github/blob/main/SECURITY.md
 
 # No configuration.md: the CLI takes no flags, reads no config file, and uses
 # no environment variables. Documenting one would mean inventing it.
