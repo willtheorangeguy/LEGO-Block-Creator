@@ -25,4 +25,4 @@ Please open an [issue](https://github.com/willtheorangeguy/LEGO-Block-Creator/is
 * Impact of the issue, including how an attacker might exploit the issue
 * This information will help us triage your report more quickly.
 
-Contributions should follow the [`CODE_OF_CONDUCT`](CODE_OF_CONDUCT.md) and [`CONTRIBUTING`](CONTRIBUTING.md) documents.
+Contributions should follow the [`CODE_OF_CONDUCT`](https://github.com/willtheorangeguy/LEGO-Block-Creator/blob/HEAD/CODE_OF_CONDUCT.md) and [`CONTRIBUTING`](https://github.com/willtheorangeguy/LEGO-Block-Creator/blob/HEAD/CONTRIBUTING.md) documents.

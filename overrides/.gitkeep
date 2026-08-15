@@ -1,0 +1,11 @@
+This directory is Material's `custom_dir`.
+
+The build stages the shared theme overrides here with no-clobber, so it is
+normally empty in a project repo and everything is inherited.
+
+To customise one thing for this repo only, commit a file with the same path
+as the shared one and it will win. The shared files live in
+`design-system/overrides/` in willtheorangeguy/mkdocs.
+
+Do not delete this directory: `theme.custom_dir` points at it and MkDocs
+warns when it is missing.

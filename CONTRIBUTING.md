@@ -6,11 +6,11 @@ The following is a set of guidelines for contributing to the LEGO Block Creator 
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Code of Conduct](https://github.com/willtheorangeguy/LEGO-Block-Creator/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to our [Discord](https://discord.gg/hnKjsBcpBR).
+This project and everyone participating in it is governed by the [Code of Conduct](https://github.com/willtheorangeguy/LEGO-Block-Creator/blob/HEAD/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to our [Discord](https://discord.gg/hnKjsBcpBR).
 
 ## New Contributor Guide
 
-To get an overview of the project, read the [README](README.md). Here are some resources to help you get started with open source contributions:
+To get an overview of the project, read the [README](https://github.com/willtheorangeguy/LEGO-Block-Creator/blob/HEAD/README.md). Here are some resources to help you get started with open source contributions:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git).
@@ -35,7 +35,7 @@ Please contribute using [GitHub Flow](https://guides.github.com/introduction/flo
 ### Did you fix whitespace, format code, or make a purely cosmetic patch?
 
 - Changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability of LEGO Block Creator are still accepted! Just follow the same instructions as above.
-- However, do ensure that any cosmetic changes follow the Dog Face Development Co. Style Guides, found [below](#style).
+- However, do ensure that any cosmetic changes follow the Dog Face Development Co. Style Guides, found in the [Dog Face Development Co. Code Style Guide](https://github.com/Dog-Face-Development/DFD-Code-Style-Guide).
 
 ### Do you intend to add a new feature or change an existing one?
 

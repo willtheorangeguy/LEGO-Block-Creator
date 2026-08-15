@@ -1,0 +1,50 @@
+# Documentation configuration for LEGO-Block-Creator.
+#
+# Everything shared — theme, palette, markdown extensions, plugins,
+# validation — is inherited from willtheorangeguy/mkdocs. This file carries
+# only what makes this site this project.
+#
+# Never declare `plugins:` or `markdown_extensions:` here. MkDocs replaces
+# lists rather than merging them, so doing so silently drops the entire
+# shared configuration.
+
+INHERIT: .mkdocs-shared/shared/mkdocs.base.yml
+
+site_name: LEGO Block Creator
+site_description: Offline inventory tracking of LEGO parts and sets through an easy to use CLI.
+site_author: willtheorangeguy
+
+site_url: https://williamvdg.me/LEGO-Block-Creator/
+
+repo_url: https://github.com/willtheorangeguy/LEGO-Block-Creator
+repo_name: willtheorangeguy/LEGO-Block-Creator
+edit_uri: edit/master/docs/
+
+copyright: Copyright &copy; willtheorangeguy
+
+theme:
+  logo: images/logo.png
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Installation: installation.md
+  - Architecture: architecture.md
+  - Commands: api.md
+  - Development:
+      - Testing: testing.md
+      - CI/CD: ci-cd.md
+  - About:
+      - Contributing: contributing.md
+      - Changelog: changelog.md
+      - Code of Conduct: code-of-conduct.md
+      - Security: security.md
+      - License: license.md
+
+# No configuration.md: the CLI takes no flags, reads no config file, and uses
+# no environment variables. Documenting one would mean inventing it.
+#
+# No faq.md: no recurring questions in issues or discussions to draw from.
+
+exclude_docs: |
+  docs.instructions.md

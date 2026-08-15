@@ -1,19 +1,19 @@
-# Testing Guide
+# Testing
 
-This document describes the testing infrastructure and practices for the LEGO Block Creator project.
+The testing infrastructure and practices for LEGO Block Creator.
 
-## Test Suite Overview
+## Test suite overview
 
 The project includes a comprehensive test suite that covers all CLI commands and functionality with **100% code coverage**.
 
-### Test Statistics
+### Test statistics
 
 - **Total Tests**: 21
 - **Code Coverage**: 100%
 - **Test Framework**: pytest
 - **Coverage Tool**: pytest-cov
 
-## Running Tests
+## Running tests
 
 ### Prerequisites
 
@@ -23,7 +23,7 @@ Install the required testing dependencies:
 pip install -r requirements.txt
 ```
 
-### Run All Tests
+### Run all tests
 
 ```bash
 pytest
@@ -34,13 +34,13 @@ This will automatically:
 - Generate coverage reports (terminal, HTML, and XML)
 - Display missing coverage lines
 
-### Run Tests with Verbose Output
+### Run tests with verbose output
 
 ```bash
 pytest -v
 ```
 
-### Run Specific Tests
+### Run specific tests
 
 ```bash
 # Run a specific test file
@@ -50,7 +50,7 @@ pytest tests/test_main.py
 pytest tests/test_main.py::test_lego_cmd_newpiece
 ```
 
-### View Coverage Report
+### View the coverage report
 
 After running tests, open the HTML coverage report:
 
@@ -61,67 +61,45 @@ xdg-open htmlcov/index.html  # Linux
 start htmlcov/index.html  # Windows
 ```
 
-## Test Coverage
+## Test coverage
 
 The test suite covers all CLI commands:
 
-### Piece Management Commands
+### Piece management commands
 - `newpiece` - Create a new piece
 - `newcolour`/`newcolor` - Create a new colour
 - `addpiece` - Add quantity to existing piece
 - `removepiece` - Remove quantity from piece
 
-### Piece Sorting Commands
+### Piece sorting commands
 - `sortparts-all` - List all pieces
 - `sortparts-name` - Search pieces by name
 - `sortparts-colour`/`sortparts-color` - Filter by colour
 
-### Set Management Commands
+### Set management commands
 - `newset` - Create a new set
 - `newtheme` - Create a new theme
 - `addset` - Add quantity to existing set
 - `removeset` - Remove quantity from set
 
-### Set Sorting Commands
+### Set sorting commands
 - `sortsets-all` - List all sets
 - `sortsets-name` - Search sets by name
 - `sortsets-number` - Search sets by number
 - `sortsets-theme` - Filter by theme
 
-### Utility Commands
+### Utility commands
 - `help` - Display help information
 - `copyright`/`license` - Display license information
 - Invalid command handling
 
-## Continuous Integration
+## Continuous integration
 
-### GitHub Actions Workflows
+Tests run automatically on every push and pull request across three operating
+systems and four Python versions. See [CI/CD](ci-cd.md) for the full workflow
+breakdown.
 
-The project uses GitHub Actions for automated testing:
-
-#### PyTest Workflow (`.github/workflows/pytest.yml`)
-
-This workflow runs on every push and pull request:
-
-- **Operating Systems**: Ubuntu, Windows, macOS
-- **Python Versions**: 3.9, 3.10, 3.11, 3.12
-- **Features**:
-  - Installs dependencies
-  - Runs full test suite
-  - Generates coverage reports
-  - Uploads coverage to Codecov (optional)
-
-**Total Test Matrix**: 12 jobs (3 OS × 4 Python versions)
-
-#### Pylint Workflow (`.github/workflows/pylint.yml`)
-
-Ensures code quality standards:
-
-- Runs on every push
-- Analyzes all Python files
-- Uses Python 3.9 as the base version
-
-### Test Configuration
+## Test configuration
 
 Test configuration is defined in `pyproject.toml`:
 
@@ -137,9 +115,9 @@ source = ["."]
 omit = ["tests/*", "setup.py", "__main__.py"]
 ```
 
-## Writing Tests
+## Writing tests
 
-### Test Structure
+### Test structure
 
 Tests are located in the `tests/` directory and follow pytest conventions:
 
@@ -158,7 +136,7 @@ def test_lego_cmd_command(self, mock_print):
     ])
 ```
 
-### Test Guidelines
+### Test guidelines
 
 1. **Use descriptive test names**: Test names should clearly indicate what is being tested
 2. **Mock user input**: Use `@patch("builtins.input")` to simulate user input
@@ -168,7 +146,7 @@ def test_lego_cmd_command(self, mock_print):
 
 ## Troubleshooting
 
-### Tests Fail Locally
+### Tests fail locally
 
 1. Ensure you have the latest dependencies:
    ```bash
@@ -185,7 +163,7 @@ def test_lego_cmd_command(self, mock_print):
    python --version  # Should be 3.9 or higher
    ```
 
-### Coverage Issues
+### Coverage issues
 
 If coverage reports show unexpected results:
 
@@ -199,7 +177,7 @@ If coverage reports show unexpected results:
    pytest
    ```
 
-## Contributing Tests
+## Contributing tests
 
 When contributing new features:
 
@@ -218,3 +196,5 @@ When contributing new features:
 - [pytest-cov Documentation](https://pytest-cov.readthedocs.io/)
 - [unittest.mock Documentation](https://docs.python.org/3/library/unittest.mock.html)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+{{ support() }}
