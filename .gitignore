@@ -122,3 +122,5 @@ docs/images/favicon.svg
 overrides/main.html
 overrides/partials/
 overrides/.icons/
+.bandit/
+.recall/
