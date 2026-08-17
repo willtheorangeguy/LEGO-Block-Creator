@@ -1,0 +1,3 @@
+[bandit]
+exclude = */tests/*,*/test/*,*/test_*.py,*/*_test.py,*/conftest.py,*/.venv/*,*/venv/*,*/build/*,*/node_modules/*
+skips = B101

@@ -45,3 +45,6 @@ exclude_lines = [
     "class .*\\bProtocol\\):",
     "@(abc\\.)?abstractmethod",
 ]
+[tool.bandit]
+exclude_dirs = ["tests", "test", ".venv", "venv", "build", "node_modules"]
+skips = ["B101"]
