@@ -7,6 +7,13 @@ program exits. Run it again for each command.
 Every command below is recognised by `lego_cmd()` in `main.py`. Anything else
 prints an error telling you to try `help`.
 
+
+!!! warning "These describe the intended behaviour, not the current behaviour"
+    The commands accept their input as documented. None of them store or retrieve
+    anything: every sort and search prints a fixed placeholder dictionary, and
+    additions are echoed and discarded. See
+    [known issues](internal/known-issues.md).
+
 ## Pieces
 
 <div class="wt-reference" markdown>

@@ -1,128 +1,90 @@
 <!-- Logo -->
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/willtheorangeguy/LEGO-Block-Creator/master/docs/images/logo.png" height="250px" width="400px" alt="LEGO Block Creator">
+  <img src="https://raw.githubusercontent.com/willtheorangeguy/.github/main/icons/LEGO-Block-Creator/logo.png" height="250px" width="400px" alt="LEGO Block Creator">
   <br>
   LEGO Block Creator
   <br>
 </h1>
 
 <!-- Copy -->
-<h4 align="center">Offline inventory tracking of LEGO parts and sets through an easy to use CLI.</h4>
+<h4 align="center">A command-line catalogue for a LEGO collection — pieces, sets, colours, and themes, entirely offline.</h4>
 
 <!-- Badges -->
 <div align="center">
-  <!-- Stability -->
-  <img alt="Docker Build State" src="https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/docker-publish.yml/badge.svg">
-  <!-- Stability -->
-  <img alt="PyPI Build State" src="https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/push-to-pypi.yml/badge.svg">
-  <!-- Stability -->
-  <img alt="Pytest State" src="https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/pytest.yml/badge.svg">
-  <!-- Stability -->
-  <img alt="Pylint State" src="https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/pylint.yml/badge.svg">
-  <!-- CodeQL -->
-  <img alt="CodeQL State" src="https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/codeql-analysis.yml/badge.svg">
-  <!-- Version -->
   <img alt="GitHub Version" src="https://img.shields.io/github/v/release/willtheorangeguy/LEGO-Block-Creator?include_prereleases">
-  <!-- Issues -->
   <img alt="GitHub Issues" src="https://img.shields.io/github/issues/willtheorangeguy/LEGO-Block-Creator">
-  <!-- Pull Requests -->
   <img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr/willtheorangeguy/LEGO-Block-Creator">
-  <!-- Discord -->
-  <img alt="Discord Server ID" src="https://img.shields.io/discord/961502230521978920">
-  <!-- Downloads -->
-  <img alt="Downloads" src="https://img.shields.io/github/downloads/willtheorangeguy/LEGO-Block-Creator/total">
-  <!-- Language Count -->
-  <img alt="GitHub Languages" src="https://img.shields.io/github/languages/count/willtheorangeguy/LEGO-Block-Creator">
+  <img alt="License" src="https://img.shields.io/github/license/willtheorangeguy/LEGO-Block-Creator">
 </div>
 
 <!-- Navigation -->
 <p align="center">
+  <a href="#status">Status</a> •
   <a href="#key-features">Key Features</a> •
-  <a href="#download">Download</a> •
-  <a href="#how-to-use">How To Use</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#documentation">Documentation</a> •
   <a href="#support">Support</a> •
   <a href="#contributing">Contributing</a> •
-  <a href="#changelog">Changelog</a> •
-  <a href="#credits">Credits & Contributors</a>
+  <a href="#credits">Credits</a> •
+  <a href="#license">License</a>
 </p>
 
-<!-- Screenshot(s) -->
-![screenshot](https://raw.githubusercontent.com/willtheorangeguy/LEGO-Block-Creator/master/docs/images/newpiece.png)
-![screenshot](https://raw.githubusercontent.com/willtheorangeguy/LEGO-Block-Creator/master/docs/images/newset.png)
+<!-- Screenshot -->
+<div align="center">
+  <img alt="Adding a piece" src="https://raw.githubusercontent.com/willtheorangeguy/.github/main/icons/LEGO-Block-Creator/newpiece.png">
+  <img alt="Adding a set" src="https://raw.githubusercontent.com/willtheorangeguy/.github/main/icons/LEGO-Block-Creator/newset.png">
+</div>
+
+## Status
+
+**The command surface works; the back end behind it does not.** Adding a piece echoes what you typed and stores it nowhere, and every sort or search prints a fixed placeholder dictionary regardless of input.
+
+Treat the commands below as the intended interface. See [`docs/internal/known-issues.md`](docs/internal/known-issues.md) for exactly what happens today, and [`PLANNING.md`](PLANNING.md) for what is planned.
 
 ## Key Features
 
-* Easy to use CLI interface.
-* Can create pieces, sets and colors.
-* Able to add and remove new pieces to previously existing pieces.
-* Able to add and remove new sets to previously existing sets.
-* Can sort items by name, color, number and theme.
-* Cross platform.
+- An interactive prompt for pieces — name, colour, quantity.
+- An interactive prompt for sets — name, number, theme, piece count, quantity.
+- Sort and search commands for both, by name, colour, number, or theme.
+- British and American spellings accepted for every colour command.
+- Pure standard library; runs offline on Windows, macOS, and Linux.
 
-## Download
-
-You can **[download](https://github.com/willtheorangeguy/LEGO-Block-Creator/releases/latest) the source code** to run the CLI from the command line on Windows, macOS and Linux. **This will require [Python](https://www.python.org/downloads/).**
-
-You can **[download](https://github.com/willtheorangeguy/LEGO-Block-Creator/releases/latest) the latest executable launcher** of LEGO Block Creator for Windows. **This does not require Python.**
-
-## How To Use
-
-To run the application, you can use [Git and the Python Interpreter](https://github.com/willtheorangeguy/LEGO-Block-Creator/main/README.md#git), which allows you to clone and run the application, [`pip`](https://github.com/willtheorangeguy/LEGO-Block-Creator/main/README.md#pip) to create a command line application, or [Docker](https://github.com/willtheorangeguy/LEGO-Block-Creator/main/README.md#docker) to create a container of the application.
-
-### Git
-
-To clone and run this application, you'll need [Git](https://git-scm.com/downloads) and [Python](https://www.python.org/downloads/) installed on your computer. If you would rather not use Git, you can just download the script from GitHub above. From your command line:
+## Installation
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/willtheorangeguy/LEGO-Block-Creator
-
-# Go into the repository
-$ cd LEGO-Block-Creator
-
-# Run the CLI
-$ python main.py
+git clone https://github.com/willtheorangeguy/LEGO-Block-Creator
+cd LEGO-Block-Creator
+python main.py
 ```
 
-### `pip`
+Also on [PyPI](https://pypi.org/project/LEGO-Block-Creator/) as `lego-block-creator`, and as a Docker image — see [Installation](https://williamvdg.me/LEGO-Block-Creator/installation/).
 
-You can install the program from the [Python Package Index](https://pypi.org/project/LEGO-Block-Creator/) through `pip`.
+## Usage
 
-```bash
-# Install via pip
-$ pip install lego-block-creator
+The program takes **one command per run**: start it, type a command, answer its prompts, and it exits.
 
-# Run the CLI
-$ lego-block-creator
+```
+LEGO CMD: newpiece
+Name the piece you would like to add: 2x4 Brick
 ```
 
-### Docker
+`help` lists every command. The full reference is in [Commands](https://williamvdg.me/LEGO-Block-Creator/api/).
 
-You can pull the [Docker](https://www.docker.com/) image from GitHub Packages. From your command line:
+## Documentation
 
-```bash
-# Pull image
-$ docker pull ghcr.io/willtheorangeguy/lego-block-creator:master
-
-# Run container
-$ docker run -i -t ghcr.io/willtheorangeguy/lego-block-creator:master python send.py
-```
+Full documentation is published at **[williamvdg.me/LEGO-Block-Creator](https://williamvdg.me/LEGO-Block-Creator/)** and lives in [`docs/`](docs/index.md):
+[Getting Started](docs/getting-started.md) · [Installation](docs/installation.md) · [Architecture](docs/architecture.md) · [Commands](docs/api.md) · [Testing](docs/testing.md) · [CI/CD](docs/ci-cd.md) · [FAQ](docs/faq.md)
 
 ## Support
 
-To create your part and set library and manipulate it, just launch the app using the instructions above!
-
-More documentation is available in the **[Documentation](https://github.com/willtheorangeguy/LEGO-Block-Creator/tree/main/docs)** and on the **[Wiki](https://github.com/willtheorangeguy/LEGO-Block-Creator/wiki)**. If more support is required, please open a **[GitHub Discussion](https://github.com/willtheorangeguy/LEGO-Block-Creator/discussions/new)** or join our **[Discord](https://discord.gg/hnKjsBcpBR)**.
+Open a [GitHub Discussion](https://github.com/willtheorangeguy/LEGO-Block-Creator/discussions) or file an [issue](https://github.com/willtheorangeguy/LEGO-Block-Creator/issues/new/choose).
 
 ## Contributing
 
 Please contribute using [GitHub Flow](https://guides.github.com/introduction/flow). Create a branch, add commits, and [open a pull request](https://github.com/willtheorangeguy/LEGO-Block-Creator/compare).
 
-Please read [`CONTRIBUTING`](https://github.com/willtheorangeguy/.github/blob/main/CONTRIBUTING.md) for details on our [`CODE OF CONDUCT`](https://github.com/willtheorangeguy/.github/blob/main/CODE_OF_CONDUCT.md), , and the process for submitting pull requests to us.
-
-## Changelog
-
-See the [`CHANGELOG`](CHANGELOG.md) file for details.
+See the org-wide [Contributing Guide](https://github.com/willtheorangeguy/.github/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/willtheorangeguy/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## Credits
 
@@ -150,18 +112,10 @@ This software uses the following open source packages, projects, services or web
   </tr>
 </table>
 
-## Contributors
-
-* [@willtheorangeguy](https://github.com/willtheorangeguy) - Sponsor on [PayPal](https://paypal.me/wvdg44?country.x=CA&locale.x=en_US)
-
-## You may also like...
-
-* [ProgramVer](https://github.com/willtheorangeguy/ProgramVer) - An open-source, Python GUI version window to show copyright info and licenses.
-* [PyWorkout](https://github.com/willtheorangeguy/PyWorkout) - A minimal CLI to keep you inspired during your workout!
-* [PyAvatar](https://github.com/willtheorangeguy/PyAvatar) - Easily display all of your creative avatars to keep them consistent across websites.
+Sponsor [@willtheorangeguy](https://github.com/willtheorangeguy) on [PayPal](https://paypal.me/wvdg44?country.x=CA&locale.x=en_US).
 
 ## License
 
-This project is licensed under the [MIT License](https://mit-license.org/) - see the [`LICENSE`](LICENSE.md) file for details.
+MIT — see [`LICENSE.md`](LICENSE.md).
 
 **This project is in no way endorsed and/or affiliated by/with the LEGO Group or any of its subsidiaries.** LEGO, the LEGO logo, the Minifigure, DUPLO, LEGENDS OF CHIMA, NINJAGO, BIONICLE, MINDSTORMS and MIXELS are trademarks and copyright the [LEGO Group](https://www.lego.com/en-ca/legal/).
