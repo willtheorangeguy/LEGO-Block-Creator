@@ -1,21 +1,31 @@
 # LEGO Block Creator
 
-LEGO Block Creator is a command-line tool for cataloguing a LEGO collection. You
-add pieces and sets through an interactive prompt, then sort and search them by
-name, colour, set number, or theme. It runs entirely offline and needs nothing
-beyond Python itself.
+LEGO Block Creator is a command-line tool for cataloguing a LEGO collection. It
+presents an interactive prompt for adding pieces and sets and for sorting and
+searching them by name, colour, set number, or theme. It runs entirely offline
+and needs nothing beyond Python itself.
 
-!!! warning "The inventory is not saved to disk"
-    Everything you enter lives in memory for the duration of the session and is
-    lost when the program exits. There is no database file, and no import or
-    export. Treat it as a scratchpad rather than a permanent catalogue.
+!!! danger "The commands do not yet store or retrieve anything"
+    This is a working command surface over an unimplemented back end. Adding a
+    piece echoes back what you typed and stores it nowhere — not on disk, and
+    not in memory. Every sort or search command prints the same fixed
+    placeholder dictionary regardless of what you enter:
+
+    ```
+    {'piecename': 'piecenamescontainingINPUTsearch',
+     'piececolour': 'piecescolour', 'piececount': 'numofpieces'}
+    ```
+
+    Treat the command list below as the intended interface rather than as
+    behaviour you can rely on. See
+    [known issues](internal/known-issues.md).
 
 ## Key features
 
-- Track individual pieces by name, colour, and quantity.
-- Track complete sets by name, set number, theme, piece count, and quantity.
-- Sort and search pieces by name or colour.
-- Sort and search sets by name, number, or theme.
+- A command surface for pieces — name, colour, and quantity.
+- A command surface for sets — name, set number, theme, piece count, quantity.
+- Sort and search commands for pieces, by name or colour.
+- Sort and search commands for sets, by name, number, or theme.
 - British and American spellings accepted for every colour command.
 - Runs on Windows, macOS, and Linux; installable from PyPI, Docker, or source.
 
