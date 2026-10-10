@@ -1,6 +1,6 @@
-# GitHub Actions CI/CD Guide
+# CI/CD
 
-This document describes the GitHub Actions workflows used for continuous integration and deployment in the LEGO Block Creator project.
+The GitHub Actions workflows used for continuous integration and deployment.
 
 ## Overview
 
@@ -13,11 +13,12 @@ The project uses multiple GitHub Actions workflows to ensure code quality, secur
 | CodeQL | Push, PR, Schedule | Security vulnerability scanning | ![CodeQL State](https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/codeql-analysis.yml/badge.svg) |
 | Docker Publish | Release | Build and publish Docker images | ![Docker Build State](https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/docker-publish.yml/badge.svg) |
 | PyPI Publish | Release | Publish package to PyPI | ![PyPI Build State](https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/push-to-pypi.yml/badge.svg) |
-| CLA | PR Comment | Contributor License Agreement verification | N/A |
+| Docs | Push to `master` | Build and publish this documentation site | ![Docs State](https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/docs.yml/badge.svg) |
+| Docs Lint | Pull request | Markdown style, strict docs build, link check | ![Docs Lint State](https://github.com/willtheorangeguy/LEGO-Block-Creator/actions/workflows/docs-lint.yml/badge.svg) |
 
-## Workflow Details
+## Workflow details
 
-### 1. PyTest Workflow (`.github/workflows/pytest.yml`)
+### 1. PyTest workflow (`.github/workflows/pytest.yml`)
 
 **Purpose**: Comprehensive automated testing across multiple platforms and Python versions.
 
@@ -50,7 +51,7 @@ strategy:
 - 100% code coverage of `main.py`
 - Cross-platform compatibility
 
-### 2. Pylint Workflow (`.github/workflows/pylint.yml`)
+### 2. Pylint workflow (`.github/workflows/pylint.yml`)
 
 **Purpose**: Enforce code quality standards and Python best practices.
 
@@ -74,7 +75,7 @@ python-version: ["3.9"]
 - Code smells
 - Documentation completeness
 
-### 3. CodeQL Workflow (`.github/workflows/codeql-analysis.yml`)
+### 3. CodeQL workflow (`.github/workflows/codeql-analysis.yml`)
 
 **Purpose**: Automated security vulnerability detection.
 
@@ -97,7 +98,7 @@ python-version: ["3.9"]
 - Common coding errors
 - Potential injection vulnerabilities
 
-### 4. Docker Publish Workflow (`.github/workflows/docker-publish.yml`)
+### 4. Docker publish workflow (`.github/workflows/docker-publish.yml`)
 
 **Purpose**: Build and publish Docker images to GitHub Container Registry.
 
@@ -110,7 +111,7 @@ python-version: ["3.9"]
 4. Build Docker image
 5. Push to `ghcr.io/willtheorangeguy/lego-block-creator`
 
-### 5. PyPI Publish Workflow (`.github/workflows/push-to-pypi.yml`)
+### 5. PyPI publish workflow (`.github/workflows/push-to-pypi.yml`)
 
 **Purpose**: Publish Python package to the Python Package Index.
 
@@ -125,20 +126,33 @@ python-version: ["3.9"]
 
 **Requirements**: `PYPI_API_TOKEN` secret must be configured
 
-### 6. CLA Workflow (`.github/workflows/cla.yml`)
+### 6. Docs workflow (`.github/workflows/docs.yml`)
 
-**Purpose**: Ensure contributors have signed the Contributor License Agreement.
+**Purpose**: Build and publish this documentation site to GitHub Pages.
 
-**Trigger**: Pull request comments containing `/cla-sign`
+**Trigger**: Push to `master` touching `docs/`, `mkdocs.yml`, `overrides/`, or
+any root document included in the site.
 
-**Steps**:
-1. Check CLA signature status
-2. Add signature if command is present
-3. Update PR status
+This workflow contains no build logic. It calls a reusable workflow in
+[willtheorangeguy/mkdocs](https://github.com/willtheorangeguy/mkdocs), which
+owns the theme, the plugin set, and the pinned toolchain for every repository.
+Build changes are made once, there, rather than in each repo.
 
-## Setting Up CI/CD
+### 7. Docs lint workflow (`.github/workflows/docs-lint.yml`)
 
-### Required Secrets
+**Purpose**: Catch documentation problems before they reach `master`.
+
+**Trigger**: Pull requests touching `docs/`, `mkdocs.yml`, or `overrides/`.
+
+**What Gets Checked**:
+- markdownlint style rules
+- A strict MkDocs build, which fails on broken internal links, missing nav
+  files, bad anchors, and missing snippet targets
+- External links, via lychee
+
+## Setting up CI/CD
+
+### Required secrets
 
 Configure the following secrets in repository settings:
 
@@ -150,7 +164,7 @@ Configure the following secrets in repository settings:
    - Generate at [pypi.org](https://pypi.org/manage/account/token/)
    - Settings → Secrets and variables → Actions → New repository secret
 
-### Workflow Permissions
+### Workflow permissions
 
 The workflows require the following permissions:
 
@@ -160,9 +174,9 @@ The workflows require the following permissions:
 - **Docker Publish**: `contents: read`, `packages: write`
 - **PyPI Publish**: `contents: read`
 
-## Local Testing
+## Local testing
 
-### Test Workflows Locally
+### Test workflows locally
 
 Use [act](https://github.com/nektos/act) to run workflows locally:
 
@@ -179,7 +193,7 @@ act -j test
 act -W .github/workflows/pytest.yml
 ```
 
-### Validate Workflow Syntax
+### Validate workflow syntax
 
 Use GitHub's workflow validator:
 
@@ -195,7 +209,7 @@ actionlint
 
 ## Monitoring CI/CD
 
-### Check Workflow Status
+### Check workflow status
 
 1. **Via GitHub UI**: 
    - Go to the "Actions" tab in the repository
@@ -212,7 +226,7 @@ actionlint
      https://api.github.com/repos/willtheorangeguy/LEGO-Block-Creator/actions/runs
    ```
 
-### Debugging Failed Workflows
+### Debugging failed workflows
 
 1. **View Logs**: Click on the failed job to see detailed logs
 2. **Download Artifacts**: Some workflows save artifacts for debugging
@@ -221,9 +235,9 @@ actionlint
    - Settings → Secrets → New repository secret
    - Name: `ACTIONS_STEP_DEBUG`, Value: `true`
 
-## Best Practices
+## Best practices
 
-### For Contributors
+### For contributors
 
 1. **Run tests locally** before pushing:
    ```bash
@@ -237,7 +251,7 @@ actionlint
 
 4. **Don't merge** until all checks pass
 
-### For Maintainers
+### For maintainers
 
 1. **Review workflow logs** for failed PRs
 2. **Keep workflows up to date** with latest actions versions
@@ -247,7 +261,7 @@ actionlint
 
 ## Troubleshooting
 
-### Common Issues
+### Common issues
 
 **Issue**: Tests pass locally but fail in CI
 - **Solution**: Check Python version differences, ensure all dependencies are in `requirements.txt`
@@ -261,13 +275,13 @@ actionlint
 **Issue**: Secrets not working
 - **Solution**: Verify secret names match exactly (case-sensitive)
 
-### Getting Help
+### Getting help
 
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [GitHub Community Forum](https://github.community/)
 - [Project Issues](https://github.com/willtheorangeguy/LEGO-Block-Creator/issues)
 
-## Future Enhancements
+## Future enhancements
 
 Potential improvements to CI/CD:
 
@@ -279,3 +293,5 @@ Potential improvements to CI/CD:
 - [ ] Add code quality metrics tracking
 - [ ] Add automated security scanning for dependencies
 - [ ] Add pre-commit hooks configuration
+
+{{ support() }}
